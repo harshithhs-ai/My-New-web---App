@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datamites Mission Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Iilli start aagutte - idanna copy maadi */
+        :root {
+            --cyan: #00f2ff;
+            --purple: #bc13fe;
+            --bg: #030712;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.05), transparent),
+                url('https://www.transparenttextures.com/patterns/stardust.png');
+        }
+
+        /* Center Container */
+        .welcome-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-radius: 30px;
+            padding: 50px 40px;
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Title Styling */
+        .glitch {
+            font-family: 'Orbitron';
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow: 0 0 15px var(--cyan);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 0.75rem;
+            color: var(--cyan);
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        /* Buttons Fix - No more blue links! */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: block;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-family: 'Orbitron';
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: transparent;
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.1);
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan);
+            color: #000;
+            box-shadow: 0 0 30px var(--cyan);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-secondary:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        /* Loading Bar Section */
+        .loading-zone {
+            width: 100%;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--purple), var(--cyan));
+            box-shadow: 0 0 10px var(--cyan);
+            transition: width 0.1s;
+        }
+
+        .status-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 9px;
+            color: #444;
+            font-family: 'Orbitron';
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-container">
+        <h1 class="glitch">DATAMITES</h1>
+        <p class="subtitle">System Ready: Initialize Navigator</p>
+
+        <div class="action-buttons">
+            <a href="roadmap.html" class="btn btn-primary">START MISSION</a>
+            <a href="about.html" class="btn btn-secondary">DATA FILES</a>
+        </div>
+
+        <div class="loading-zone">
+            <div class="loading-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <div class="status-info">
+                <span id="statusText">UPLOADING CORE... 0%</span>
+                <span>V2.0.24-ALPHA</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth Percentage Counter Logic
+        window.onload = () => {
+            const bar = document.getElementById('progressBar');
+            const text = document.getElementById('statusText');
+            let width = 0;
+
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    text.innerText = "SYSTEM ONLINE - WELCOME AGENT";
+                    text.style.color = "#00f2ff";
+                } else {
+                    width += Math.floor(Math.random() * 4) + 1;
+                    if(width > 100) width = 100;
+                    bar.style.width = width + '%';
+                    text.innerText = `UPLOADING CORE... ${width}%`;
+                }
+            }, 80);
+        };
+    </script>
+</body>
+</html>

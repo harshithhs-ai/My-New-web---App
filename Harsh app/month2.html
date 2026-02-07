@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month 02 | Stats & Journey Part 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00f2ff;
+            --purple: #bc13fe;
+            --bg: #020617;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: radial-gradient(circle at 100% 100%, rgba(188, 19, 254, 0.07), transparent);
+        }
+
+        .container { width: 90%; max-width: 800px; padding: 40px 0; }
+
+        header { margin-bottom: 40px; text-align: center; }
+        header h1 { font-family: 'Orbitron'; font-size: 2rem; color: var(--purple); text-shadow: 0 0 15px rgba(188, 19, 254, 0.4); }
+
+        /* Stats Cards */
+        .module-card {
+            background: var(--glass);
+            border: 1px solid rgba(188, 19, 254, 0.2);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* --- PART 2 JOURNEY SECTION --- */
+        .part2-preview {
+            display: none; /* Modal or toggle effect */
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(0, 242, 255, 0.03);
+            border: 1px dashed var(--cyan);
+            border-radius: 20px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .part2-preview h2 { font-family: 'Orbitron'; color: var(--cyan); margin-bottom: 10px; font-size: 1.2rem; }
+        .part2-preview p { font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px; }
+
+        /* Buttons Fix */
+        .action-zone {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            width: 100%;
+            max-width: 350px;
+            padding: 18px;
+            font-family: 'Orbitron';
+            font-weight: 900;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Show Part 2 Button */
+        .btn-purple {
+            background: transparent;
+            border: 2px solid var(--purple);
+            color: var(--purple);
+        }
+        .btn-purple:hover { background: var(--purple); color: #fff; box-shadow: 0 0 30px var(--purple); }
+
+        /* Start Part 2 Button (Glow Effect) */
+        .btn-start-part2 {
+            background: var(--cyan);
+            color: #000;
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+            display: none; /* Initially hidden */
+        }
+        .btn-start-part2:hover { transform: scale(1.05); box-shadow: 0 0 40px var(--cyan); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Month 02: Statistics</h1>
+        </header>
+
+        <div class="module-card">
+            <h3 style="color: var(--purple); font-family: 'Orbitron'; margin-bottom: 10px;">CORE CONCEPTS</h3>
+            <p style="color: #94a3b8; font-size: 0.9rem;">Inferential Statistics, Hypothesis Testing, and Visual Intelligence using Tableau.</p>
+        </div>
+
+        <div class="part2-preview" id="journeySection">
+            <h2>PART 2: THE AI ASCENSION</h2>
+            <p>Ready to start? Part 2 covers Machine Learning Core & Real-time AI Deployment.</p>
+            <a href="month3.html" class="btn btn-start-part2" id="startBtn">START PART 2 NOW</a>
+        </div>
+
+        <div class="action-zone">
+            <button class="btn btn-purple" id="showJourneyBtn">SHOW ME THE PART 2 JOURNEY</button>
+            
+            <a href="roadmap.html" style="color: #444; font-size: 0.7rem; text-decoration: none; font-family: 'Orbitron';">BACK TO OVERVIEW</a>
+        </div>
+    </div>
+
+    <script>
+        const showBtn = document.getElementById('showJourneyBtn');
+        const journeySection = document.getElementById('journeySection');
+        const startBtn = document.getElementById('startBtn');
+
+        showBtn.addEventListener('click', () => {
+            // Show the section and the new start button
+            journeySection.style.display = 'block';
+            startBtn.style.display = 'inline-block';
+            
+            // Hide the current button
+            showBtn.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

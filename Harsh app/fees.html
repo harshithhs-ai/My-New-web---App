@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fees Portal | Secure Payment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --gold: #ffd700;
+            --bg: #010409;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.08), transparent);
+        }
+
+        .fees-container {
+            width: 100%;
+            max-width: 420px;
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+        }
+
+        header h1 { font-family: 'Orbitron'; color: var(--gold); font-size: 1.2rem; margin-bottom: 25px; }
+
+        .price-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+        }
+
+        .price-box h2 { font-family: 'Orbitron'; font-size: 2.2rem; color: #fff; }
+
+        .btn-pay {
+            width: 100%;
+            padding: 18px;
+            background: var(--gold);
+            color: #000;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Orbitron';
+            font-weight: 900;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .back-link { display: block; margin-top: 25px; color: #64748b; font-size: 0.7rem; text-decoration: none; font-family: 'Orbitron'; }
+    </style>
+</head>
+<body>
+
+    <div class="fees-container">
+        <header>
+            <h1>Mission Enrollment</h1>
+        </header>
+
+        <div class="price-box">
+            <span style="font-size: 0.65rem; color: #8b949e; letter-spacing: 1.5px;">TOTAL INVESTMENT</span>
+            <h2>₹45,000</h2>
+            <p style="font-size: 0.6rem; color: var(--neon-green); margin-top: 8px;">ALL-INCLUSIVE PORTFOLIO ACCESS</p>
+        </div>
+
+        <button class="btn-pay" id="payBtn">PROCEED TO PAY</button>
+
+        <a href="month3.html" class="back-link">← RETURN TO SYSTEM</a>
+    </div>
+
+    <script>
+        function launchConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ffd700', '#39ff14', '#ffffff']
+            });
+        }
+
+        window.onload = launchConfetti;
+
+        document.getElementById('payBtn').onclick = function() {
+            launchConfetti(); // First celebration
+            
+            // Nimma Razorpay link ge redirect maadokke 1 second gap
+            setTimeout(() => {
+                window.location.href = "https://pages.razorpay.com/pl_L7Xd7FfmGqBdDk/view";
+            }, 1000);
+        };
+    </script>
+
+</body>
+</html>

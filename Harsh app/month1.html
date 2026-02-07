@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month 01 | Deep Dive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00f2ff;
+            --purple: #bc13fe;
+            --bg: #020617;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.05), transparent);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 40px 0;
+        }
+
+        /* Back Link Styling */
+        .back-nav {
+            margin-bottom: 30px;
+        }
+        .back-link {
+            text-decoration: none;
+            color: var(--cyan);
+            font-family: 'Orbitron';
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            border: 1px solid var(--cyan);
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .back-link:hover { background: var(--cyan); color: #000; }
+
+        header { margin-bottom: 40px; }
+        header span { color: var(--cyan); font-weight: bold; letter-spacing: 3px; font-size: 0.8rem; }
+        header h1 { font-family: 'Orbitron'; font-size: 2rem; margin-top: 10px; }
+
+        /* Topic Cards */
+        .topic-container { display: flex; flex-direction: column; gap: 20px; }
+        .card {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        .card h3 { color: var(--cyan); font-family: 'Orbitron'; font-size: 1rem; margin-bottom: 10px; }
+        .card ul { list-style: none; color: #94a3b8; font-size: 0.9rem; }
+        .card ul li { margin-bottom: 8px; }
+        .card ul li::before { content: "▹ "; color: var(--cyan); }
+
+        /* BUTTONS SECTION - FIXED DESIGN */
+        .button-zone {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Primary Button (Syllabus) */
+        .btn-main {
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            background: var(--cyan);
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Orbitron';
+            font-weight: 900;
+            font-size: 0.8rem;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px var(--cyan);
+        }
+
+        /* Secondary Button (Move to Next) */
+        .btn-next {
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            background: transparent;
+            color: var(--purple);
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Orbitron';
+            font-weight: 900;
+            font-size: 0.8rem;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            border: 2px solid var(--purple);
+            transition: 0.3s ease;
+            box-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
+            cursor: pointer;
+        }
+        .btn-next:hover {
+            background: var(--purple);
+            color: #fff;
+            box-shadow: 0 0 30px var(--purple);
+            transform: scale(1.05);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.5rem; }
+            .btn-main, .btn-next { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="back-nav">
+            <a href="roadmap.html" class="back-link">← BACK</a>
+        </nav>
+
+        <header>
+            <span>PHASE 01</span>
+            <h1>Data Science & Python Foundation</h1>
+        </header>
+
+        <div class="topic-container">
+            <div class="card">
+                <h3>Programming Foundation</h3>
+                <ul>
+                    <li>Python Data Structures (Lists, Dicts, Sets)</li>
+                    <li>NumPy for Numerical Computing</li>
+                    <li>Pandas for Data Wrangling</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="button-zone">
+            <a href="#" class="btn-main">DOWNLOAD SYLLABUS PDF</a>
+            <a href="month2.html" class="btn-next">MOVE TO NEXT: MONTH 02 →</a>
+        </div>
+    </div>
+
+</body>
+</html>
